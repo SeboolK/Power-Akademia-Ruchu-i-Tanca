@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galeria - Power Akademia</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
+</head>
+<body>
+
+    <!-- Nagłówek -->
+    <header>
+        <img src="images/logo.jpg" alt="Logo Power Akademia" class="logo">
+        <h1>Galeria</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Start</a></li>
+                <li><a href="onas.html">O nas</a></li>
+                <li><a href="aktualnosci.html">Aktualności</a></li>
+                <li><a href="galeria.html">Galeria</a></li>
+                <li><a href="kontakt.html">Kontakt</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Sekcja Galeria -->
+    <section id="gallery">
+        <h2>Nasze zdjęcia</h2>
+
+        <div class="albums">
+            <div class="album" data-album="album1">
+                <h3>Power Przedszkole</h3>
+                <img src="images/img4.jpg" alt="Album 1">
+            </div>
+            <div class="album" data-album="album2">
+                <h3>Power Senior</h3>
+                <img src="images/album2/img1.jpg" alt="Album 2">
+            </div>
+            <div class="album" data-album="album3">
+                <h3>Zabawa</h3>
+                <img src="images/img5.jpg" alt="Album 3">
+            </div>
+            <div class="album" data-album="album4">
+                <h3>Party</h3>
+                <img src="images" alt="Album 4">
+            </div>
+            <div class="album" data-album="album5">
+                <h3>Turnieje</h3>
+                <img src="images/album5/img1.jpg" alt="Album 5">
+            </div>
+            <div class="album" data-album="album6">
+                <h3>TikTok Power Dance</h3>
+                <img src="images/album6/img1.jpg" alt="Album 6">
+            </div>
+            <div class="album" data-album="album7">
+                <h3>Maluchy Power Dance</h3>
+                <img src="images/album7/img1.jpg" alt="Album 7">
+            </div>
+            <div class="album" data-album="album8">
+                <h3>Sesja Zdjęciowa</h3>
+                <img src="images/album8/img1.jpg" alt="Album 8">
+            </div>
+        </div>
+
+        <!-- Kontener na zdjęcia z albumu -->
+        <div id="photo-container">
+            <button id="close-gallery">✖ </button>
+            <div id="photos"></div>
+        </div>
+    </section>
+
+</body>
+</html>
