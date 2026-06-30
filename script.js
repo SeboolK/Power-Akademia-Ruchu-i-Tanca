@@ -1,160 +1,179 @@
-document.addEventListener("DOMContentLoaded", function () {
-    const albums = document.querySelectorAll(".album");
+document.addEventListener("DOMContentLoaded", () => {
+    const menuButton = document.querySelector(".menu-toggle");
+    const nav = document.querySelector(".main-nav");
+
+    if (menuButton && nav) {
+        menuButton.addEventListener("click", () => {
+            const isOpen = nav.classList.toggle("open");
+            menuButton.setAttribute("aria-expanded", String(isOpen));
+        });
+    }
+
+    const revealItems = document.querySelectorAll(".reveal");
+    if ("IntersectionObserver" in window) {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("visible");
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.15 });
+
+        revealItems.forEach((item) => observer.observe(item));
+    } else {
+        revealItems.forEach((item) => item.classList.add("visible"));
+    }
+
+    setupGallery();
+    setupSignupForm();
+});
+
+function setupGallery() {
+    const albums = document.querySelectorAll("[data-album]");
     const photoContainer = document.getElementById("photo-container");
     const photosDiv = document.getElementById("photos");
     const closeGalleryBtn = document.getElementById("close-gallery");
 
-    let currentAlbum = null; // DODANE: Aktualnie otwarty album
-    let currentIndex = 0; // DODANE: Indeks aktualnego zdjęcia
+    if (!albums.length || !photoContainer || !photosDiv || !closeGalleryBtn) {
+        return;
+    }
 
-    // Liczba zdjęć w albumach
     const albumPhotos = {
-        album1: 10,  
-        album2: 4,  
-        album3: 23,  
-        album4: 0,  
-        album5: 5,  
-        album6: 0,  
-        album7: 2,  
-        album8: 0,  
+        album1: 10,
+        album2: 4,
+        album3: 23,
+        album4: 7,
+        album5: 5,
+        album7: 2
     };
+
+    let currentAlbum = "";
+    let currentIndex = 1;
 
     function showAlbumPhotos(albumId) {
         photosDiv.innerHTML = "";
-        currentAlbum = albumId; // DODANE: Zapisz aktualny album
-        const albumFolder = `images/${albumId}/`;
-        const imageCount = albumPhotos[albumId];
+        currentAlbum = albumId;
+        const imageCount = albumPhotos[albumId] || 0;
 
-        for (let i = 1; i <= imageCount; i++) {
+        for (let i = 1; i <= imageCount; i += 1) {
             const img = document.createElement("img");
-            img.src = `${albumFolder}img${i}.jpg`;
+            img.src = `images/${albumId}/img${i}.jpg`;
             img.alt = `Zdjęcie ${i}`;
-            img.classList.add("gallery-img");
-
-            img.onload = () => img.classList.add("visible");
-
-            img.addEventListener("click", function () {
-                openImageInFullscreen(i, imageCount); // DODANE: Przechodzi do pełnoekranowego trybu
-            });
-
+            img.className = "gallery-img";
+            img.addEventListener("click", () => openImageInFullscreen(i));
             photosDiv.appendChild(img);
         }
 
-        photoContainer.style.display = "flex";
+        photoContainer.classList.add("open");
+        photoContainer.setAttribute("aria-hidden", "false");
+        document.body.style.overflow = "hidden";
     }
 
-    function openImageInFullscreen(index, totalImages) {
-        currentIndex = index; // DODANE: Zapisz indeks zdjęcia
+    function closeAlbum() {
+        photoContainer.classList.remove("open");
+        photoContainer.setAttribute("aria-hidden", "true");
+        document.body.style.overflow = "";
+    }
 
+    function openImageInFullscreen(index) {
+        currentIndex = index;
+        const totalImages = albumPhotos[currentAlbum] || 1;
         const fullscreenOverlay = document.createElement("div");
-        fullscreenOverlay.classList.add("fullscreen-overlay");
+        fullscreenOverlay.className = "fullscreen-overlay";
 
         const enlargedImg = document.createElement("img");
-        enlargedImg.src = `images/${currentAlbum}/img${index}.jpg`;
-        enlargedImg.classList.add("fullscreen-img");
+        enlargedImg.src = `images/${currentAlbum}/img${currentIndex}.jpg`;
+        enlargedImg.alt = `Powiększone zdjęcie ${currentIndex}`;
+        enlargedImg.className = "fullscreen-img";
 
-        // DODANE: Strzałki do przewijania zdjęć
         const prevBtn = document.createElement("button");
-        prevBtn.innerHTML = "❮";
-        prevBtn.classList.add("nav-btn", "prev-btn");
-        prevBtn.addEventListener("click", function () {
-            navigateImage(-1, totalImages);
-        });
+        prevBtn.textContent = "‹";
+        prevBtn.type = "button";
+        prevBtn.className = "nav-btn prev-btn";
+        prevBtn.setAttribute("aria-label", "Poprzednie zdjęcie");
 
         const nextBtn = document.createElement("button");
-        nextBtn.innerHTML = "❯";
-        nextBtn.classList.add("nav-btn", "next-btn");
-        nextBtn.addEventListener("click", function () {
-            navigateImage(1, totalImages);
+        nextBtn.textContent = "›";
+        nextBtn.type = "button";
+        nextBtn.className = "nav-btn next-btn";
+        nextBtn.setAttribute("aria-label", "Następne zdjęcie");
+
+        function navigate(direction) {
+            currentIndex += direction;
+            if (currentIndex < 1) currentIndex = totalImages;
+            if (currentIndex > totalImages) currentIndex = 1;
+            enlargedImg.src = `images/${currentAlbum}/img${currentIndex}.jpg`;
+            enlargedImg.alt = `Powiększone zdjęcie ${currentIndex}`;
+        }
+
+        prevBtn.addEventListener("click", (event) => {
+            event.stopPropagation();
+            navigate(-1);
         });
 
-        fullscreenOverlay.appendChild(prevBtn);
-        fullscreenOverlay.appendChild(enlargedImg);
-        fullscreenOverlay.appendChild(nextBtn);
-        document.body.appendChild(fullscreenOverlay);
+        nextBtn.addEventListener("click", (event) => {
+            event.stopPropagation();
+            navigate(1);
+        });
 
-        fullscreenOverlay.addEventListener("click", function (event) {
+        fullscreenOverlay.addEventListener("click", (event) => {
             if (event.target === fullscreenOverlay) {
                 fullscreenOverlay.remove();
             }
         });
 
-        document.addEventListener("keydown", keyboardNavigation);
-    }
-
-    function navigateImage(direction, totalImages) {
-        currentIndex += direction;
-        if (currentIndex < 1) currentIndex = totalImages;
-        if (currentIndex > totalImages) currentIndex = 1;
-
-        const fullscreenImg = document.querySelector(".fullscreen-img");
-        fullscreenImg.src = `images/${currentAlbum}/img${currentIndex}.jpg`;
-    }
-
-    function keyboardNavigation(event) {
-        if (document.querySelector(".fullscreen-overlay")) {
-            if (event.key === "ArrowLeft") navigateImage(-1, albumPhotos[currentAlbum]);
-            if (event.key === "ArrowRight") navigateImage(1, albumPhotos[currentAlbum]);
-            if (event.key === "Escape") {
-                document.querySelector(".fullscreen-overlay").remove();
-                document.removeEventListener("keydown", keyboardNavigation);
+        document.addEventListener("keydown", function handleKeys(event) {
+            if (!document.body.contains(fullscreenOverlay)) {
+                document.removeEventListener("keydown", handleKeys);
+                return;
             }
+            if (event.key === "ArrowLeft") navigate(-1);
+            if (event.key === "ArrowRight") navigate(1);
+            if (event.key === "Escape") fullscreenOverlay.remove();
+        });
+
+        fullscreenOverlay.append(prevBtn, enlargedImg, nextBtn);
+        document.body.appendChild(fullscreenOverlay);
+    }
+
+    albums.forEach((album) => {
+        album.addEventListener("click", () => showAlbumPhotos(album.dataset.album));
+    });
+
+    closeGalleryBtn.addEventListener("click", closeAlbum);
+    photoContainer.addEventListener("click", (event) => {
+        if (event.target === photoContainer) closeAlbum();
+    });
+
+    document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape" && photoContainer.classList.contains("open")) {
+            closeAlbum();
         }
+    });
+}
+
+function setupSignupForm() {
+    const form = document.getElementById("signup-form");
+    const message = document.getElementById("signup-message");
+
+    if (!form || !message) {
+        return;
     }
 
-    // Dodany listener, który zatrzymuje propagację scrolla w kontenerze #photos,
-    // aby scrollowanie wewnątrz albumu nie wpływało na przewijanie strony głównej.
-    photosDiv.addEventListener("wheel", function (event) {
-        event.stopPropagation();
+    form.addEventListener("submit", (event) => {
+        event.preventDefault();
+        const data = new FormData(form);
+        const subject = encodeURIComponent("Zapisy na zajęcia - POWER Akademia");
+        const body = encodeURIComponent(
+            `Imię i nazwisko: ${data.get("name")}\n` +
+            `Email: ${data.get("email")}\n` +
+            `Telefon: ${data.get("phone") || "-"}\n` +
+            `Uczestnik/grupa: ${data.get("group")}\n\n` +
+            `Wiadomość:\n${data.get("message") || "-"}`
+        );
+
+        message.textContent = "Otwieram wiadomość email z przygotowanym zgłoszeniem.";
+        window.location.href = `mailto:biuro.powerart@gmail.com?subject=${subject}&body=${body}`;
     });
-
-    albums.forEach(album => {
-        album.addEventListener("click", function () {
-            showAlbumPhotos(this.getAttribute("data-album"));
-        });
-    });
-
-    closeGalleryBtn.addEventListener("click", function () {
-        photoContainer.style.display = "none";
-    });
-});
-
-
-
-
-
-
-
-document.addEventListener("DOMContentLoaded", function () {
-    const newsItems = document.querySelectorAll(".news-item, .trainer ");
-
-    // Ukrycie elementów na początku
-    newsItems.forEach(item => {
-        item.style.opacity = "0";
-        item.style.transform = "translateY(30px)";
-        item.style.transition = "opacity 0.6s ease-out, transform 0.6s ease-out";
-    });
-
-    // Tworzenie Intersection Observera
-    const observer = new IntersectionObserver((entries, observer) => {
-        entries.forEach((entry, index) => {
-            if (entry.isIntersecting) {
-                setTimeout(() => {
-                    entry.target.style.opacity = "1";
-                    entry.target.style.transform = "translateY(0)";
-                }, index * 300);
-                observer.unobserve(entry.target); // Przestaje obserwować element po jego animacji
-            }
-        });
-    }, { threshold: 0.2 });
-
-    // Obserwowanie elementów
-    newsItems.forEach(item => observer.observe(item));
-});
-
-
-
-
-
-
-
+}

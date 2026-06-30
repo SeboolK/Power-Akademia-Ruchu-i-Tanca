@@ -3,76 +3,136 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Power Akademia - Strona Główna</title>
+    <title>POWER Akademia Ruchu i Tańca | Rzeszów</title>
+    <meta name="description" content="POWER Akademia Ruchu i Tańca w Rzeszowie. Zajęcia taneczne dla dzieci, młodzieży, dorosłych i seniorów.">
     <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
 </head>
 <body>
-
-    <header>
-        <img src="images/logo.jpg" alt="Logo Power Akademia" class="logo">
-        <h1>Power Akademia Ruchu i Tańca</h1>
-        <nav>
-            <ul>
-                <li><a href="index.html">Start</a></li>
-                <li><a href="onas.html">O nas</a></li>
-                <li><a href="aktualnosci.html">Aktualności</a></li>
-                <li><a href="galeria.html">Galeria</a></li>
-                <li><a href="kontakt.html">Kontakt</a></li>
-            </ul>
+    <header class="site-header">
+        <a class="brand" href="index.html" aria-label="POWER Akademia - strona główna">
+            <img src="images/logo.jpg" alt="Logo POWER Akademia" class="brand-logo">
+            <span>POWER Akademia</span>
+        </a>
+        <button class="menu-toggle" type="button" aria-label="Otwórz menu" aria-expanded="false">☰</button>
+        <nav class="main-nav" aria-label="Główna nawigacja">
+            <a class="active" href="index.html">Start</a>
+            <a href="onas.html">O nas</a>
+            <a href="aktualnosci.html">Aktualności</a>
+            <a href="galeria.html">Galeria</a>
+            <a href="zapisy.html">Zapisy</a>
+            <a href="kontakt.html">Kontakt</a>
         </nav>
     </header>
 
-    <section id="home">
-        <div class="overlay">
-            <div class="content">
-                <h2>Witaj w Power Akademia Ruchu i Tańca!</h2>
-                <p>Power Akademia Tańca i Ruchu to miejsce, gdzie pasja spotyka profesjonalizm!  
-                   Oferujemy zajęcia taneczne dla dzieci, młodzieży i dorosłych na różnych poziomach zaawansowania.  
-                   Niezależnie od tego, czy dopiero zaczynasz swoją przygodę z tańcem,  
-                   czy szukasz miejsca, w którym możesz rozwijać swoje umiejętności – jesteśmy tutaj dla Ciebie!</p>
+    <main>
+        <section class="hero">
+            <div class="hero-content reveal">
+                <p class="eyebrow">Szkoła tańca w Rzeszowie</p>
+                <h1>POWER Akademia Ruchu i Tańca</h1>
+                <p class="hero-lead">Zajęcia taneczne, które budują technikę, pewność siebie i dobrą energię. Dla dzieci, młodzieży, dorosłych i seniorów.</p>
+                <div class="hero-actions">
+                    <a class="btn primary" href="zapisy.html">Zapisz się na zajęcia</a>
+                    <a class="btn secondary" href="galeria.html">Zobacz galerię</a>
+                </div>
             </div>
-        </div>
-    </section>
-    <section id="trainers">
-        <h2>Nasi Trenerzy</h2>
-        <div class="trainer-container">
-            <div class="trainer">
-                <img src="images/ak.jpg" alt="Trener 2">
-                <h3>Anna Kluz</h3>
-                <p>Ania Kluz to utalentowana tancerka i doświadczona instruktorka tańca. 
-                    Ukończyła studia na Wyższej Szkole Informatyki i Zarządzania w Rzeszowie. 
-                    W swojej karierze osiągnęła liczne sukcesy, rywalizując na prestiżowych turniejach 
-                    i zdobywając uznanie w środowisku tanecznym. Jej zaangażowanie, profesjonalizm 
-                    i wyjątkowe podejście do nauczania sprawiają, że jest nie tylko doskonałym trenerem, 
-                    ale także mentorką dla tancerzy. Ania z ogromnym zaangażowaniem wspiera rozwój swoich podopiecznych, 
-                    pomagając im odkrywać ich potencjał i budować pewność siebie na parkiecie. 
-                    Jej pasja i determinacja czynią ją inspirującą postacią w świecie tańca, 
-                    a jej praca nieustannie przyczynia się do popularyzacji tej sztuki wśród tancerzy.</p>
+            <div class="hero-panel reveal">
+                <strong>Nowe nabory</strong>
+                <span>Grupy rekreacyjne i turniejowe</span>
+                <a href="aktualnosci.html">Sprawdź szczegóły</a>
             </div>
-            <div class="trainer">
-                <img src="images/mu.jpg" alt="Trener 1">
-                <h3>Michał Urman</h3>
-                <p>Michał Urman – człowiek, dla którego taniec to nie tylko pasja, ale sposób na życie. 
-                    Od lat związany ze światem tańca sportowego. Swoją wiedzę i doświadczenie zdobywał jako instruktor, 
-                    doskonaląc umiejętności i przekazując je  tancerzom. Jego profesjonalizm, 
-                    zaangażowanie i nieustanna miłość do ruchu sprawiły, że stał się inspiracją dla wielu młodych tancerzy. 
-                    Dzięki wieloletniemu doświadczeniu potrafi nie tylko doskonale przekazywać technikę, 
-                    ale także zaszczepiać w swoich uczniach pasję i determinację do rozwoju.</p>
-            </div>
-            
-            <div class="trainer">
-                <img src="images/at.jpg" alt="Trener 3">
-                <h3>Angelika Tondera</h3>
-                <p>Angelika Tondera to charyzmatyczna tancerka i ceniona trenerka, która z pasją angażuje się w rozwój społeczności tanecznej. 
-                    Dzięki swojej wiedzy i umiejętnościom inspiruje uczniów, pomagając im doskonalić technikę i odkrywać radość płynącą z tańca. 
-                    Jej profesjonalizm, zaangażowanie i indywidualne podejście do każdego tancerza sprawiają, 
-                    że jest cenioną postacią w środowisku tanecznym, a jej praca przyczynia się do rozwoju miłośników tańca.</p>
-            </div>
-        </div>
-    </section>
-    
-    <script src="script.js"></script>
-    
+        </section>
 
+        <section class="section intro-section">
+            <div class="section-heading reveal">
+                <p class="eyebrow">Co robimy</p>
+                <h2>Profesjonalna szkoła z atmosferą, do której chce się wracać</h2>
+            </div>
+            <div class="feature-grid">
+                <article class="feature-card reveal">
+                    <span class="feature-icon">01</span>
+                    <h3>Dzieci i młodzież</h3>
+                    <p>Zajęcia rozwijające rytmikę, koordynację, odwagę sceniczną i pracę w grupie.</p>
+                </article>
+                <article class="feature-card reveal">
+                    <span class="feature-icon">02</span>
+                    <h3>Taniec towarzyski</h3>
+                    <p>Technika tańców standardowych i latynoamerykańskich, od podstaw po poziom sportowy.</p>
+                </article>
+                <article class="feature-card reveal">
+                    <span class="feature-icon">03</span>
+                    <h3>Power Senior</h3>
+                    <p>Ruch, integracja i taniec w komfortowym tempie, bez presji i z dużą dawką radości.</p>
+                </article>
+                <article class="feature-card reveal">
+                    <span class="feature-icon">04</span>
+                    <h3>Turnieje i pokazy</h3>
+                    <p>Przygotowanie do występów, wydarzeń i turniejów dla osób, które chcą iść krok dalej.</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="section split-section">
+            <div class="split-copy reveal">
+                <p class="eyebrow">Dla kogo</p>
+                <h2>Dobierzemy grupę do wieku, celu i poziomu</h2>
+                <p>Nie musisz wiedzieć, od czego zacząć. Wystarczy napisać lub wypełnić formularz, a pomożemy wybrać zajęcia dopasowane do uczestnika.</p>
+                <ul class="check-list">
+                    <li>Pierwsze kroki w tańcu</li>
+                    <li>Regularne zajęcia rekreacyjne</li>
+                    <li>Rozwój techniki i praca nad stylem</li>
+                    <li>Przygotowanie do pokazów i turniejów</li>
+                </ul>
+            </div>
+            <img class="split-image reveal" src="images/img3.jpg" alt="Uczestnicy POWER Akademii podczas zajęć">
+        </section>
+
+        <section class="section trainers-section">
+            <div class="section-heading reveal">
+                <p class="eyebrow">Kadra</p>
+                <h2>Trenerzy, którzy prowadzą z energią i spokojem</h2>
+            </div>
+            <div class="trainer-grid">
+                <article class="trainer-card reveal">
+                    <img src="images/ak.jpg" alt="Anna Kluz">
+                    <div>
+                        <h3>Anna Kluz</h3>
+                        <p>Tancerka i instruktorka, która pomaga uczestnikom rozwijać technikę, pewność siebie i swobodę na parkiecie.</p>
+                    </div>
+                </article>
+                <article class="trainer-card reveal">
+                    <img src="images/mu.jpg" alt="Michał Urman">
+                    <div>
+                        <h3>Michał Urman</h3>
+                        <p>Instruktor związany ze światem tańca sportowego, ceniony za precyzję, zaangażowanie i motywujące prowadzenie zajęć.</p>
+                    </div>
+                </article>
+                <article class="trainer-card reveal">
+                    <img src="images/at.jpg" alt="Angelika Tondera">
+                    <div>
+                        <h3>Angelika Tondera</h3>
+                        <p>Charyzmatyczna trenerka, która łączy wiedzę, dobrą energię i indywidualne podejście do każdego tancerza.</p>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="cta-band">
+            <div class="reveal">
+                <p class="eyebrow">Gotowi na pierwszy krok?</p>
+                <h2>Dołącz do POWER Akademii</h2>
+            </div>
+            <a class="btn primary" href="zapisy.html">Przejdź do zapisów</a>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>POWER Akademia Ruchu i Tańca | Rzeszów</p>
+        <div>
+            <a href="mailto:biuro.powerart@gmail.com">biuro.powerart@gmail.com</a>
+            <a href="https://www.facebook.com/profile.php?id=61563900643759" target="_blank" rel="noopener">Facebook</a>
+            <a href="https://www.instagram.com/power_akademiatancarzeszow/" target="_blank" rel="noopener">Instagram</a>
+        </div>
+    </footer>
 </body>
 </html>

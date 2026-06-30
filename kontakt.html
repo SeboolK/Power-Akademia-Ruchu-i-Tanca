@@ -3,39 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kontakt - Power Akademia</title>
+    <title>Kontakt | POWER Akademia</title>
     <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
 </head>
 <body>
-
-    <header>
-        <img src="images/logo.jpg" alt="Logo Power Akademia" class="logo">
-        <h1>Kontakt</h1>
-        <nav>
-            <ul>
-                <li><a href="index.html">Start</a></li>
-                <li><a href="onas.html">O nas</a></li>
-                <li><a href="aktualnosci.html">Aktualności</a></li>
-                <li><a href="galeria.html">Galeria</a></li>
-                <li><a href="kontakt.html">Kontakt</a></li>
-            </ul>
+    <header class="site-header">
+        <a class="brand" href="index.html"><img src="images/logo.jpg" alt="Logo POWER Akademia" class="brand-logo"><span>POWER Akademia</span></a>
+        <button class="menu-toggle" type="button" aria-label="Otwórz menu" aria-expanded="false">☰</button>
+        <nav class="main-nav" aria-label="Główna nawigacja">
+            <a href="index.html">Start</a><a href="onas.html">O nas</a><a href="aktualnosci.html">Aktualności</a><a href="galeria.html">Galeria</a><a href="zapisy.html">Zapisy</a><a class="active" href="kontakt.html">Kontakt</a>
         </nav>
     </header>
 
-    <section id="contact">
-        <div class="container">
-            <div class="contact-info">
-                <h2>Skontaktuj się z nami</h2>
-                <p><strong>Adres:</strong> 35-505 Rzeszów, Poland</p>
+    <main>
+        <section class="page-hero compact">
+            <p class="eyebrow">Kontakt</p>
+            <h1>Napisz do nas i dobierzemy zajęcia</h1>
+        </section>
+
+        <section class="section contact-grid">
+            <div class="contact-card reveal">
+                <h2>POWER Akademia Ruchu i Tańca</h2>
+                <p><strong>Miasto:</strong> Rzeszów</p>
                 <p><strong>Email:</strong> <a href="mailto:biuro.powerart@gmail.com">biuro.powerart@gmail.com</a></p>
-                <div class="social-links">
-                    <a href="https://www.facebook.com/profile.php?id=61563900643759" target="_blank" class="facebook">Facebook</a>
-                    <a href="https://www.instagram.com/power_akademiatancarzeszow/" target="_blank" class="instagram">Instagram</a>
+                <div class="social-row">
+                    <a class="btn secondary" href="https://www.facebook.com/profile.php?id=61563900643759" target="_blank" rel="noopener">Facebook</a>
+                    <a class="btn secondary" href="https://www.instagram.com/power_akademiatancarzeszow/" target="_blank" rel="noopener">Instagram</a>
                 </div>
             </div>
-            
-    </section>
-    
+            <div class="contact-card reveal">
+                <h2>Szybka wiadomość</h2>
+                <p>Najprościej napisać maila z wiekiem uczestnika, doświadczeniem i preferowanym typem zajęć.</p>
+                <a class="btn primary" href="mailto:biuro.powerart@gmail.com?subject=Zapytanie%20o%20zajęcia%20POWER%20Akademia">Napisz email</a>
+            </div>
+        </section>
+    </main>
 
+    <footer class="site-footer"><p>POWER Akademia Ruchu i Tańca | Rzeszów</p><div><a href="zapisy.html">Zapisy</a><a href="galeria.html">Galeria</a></div></footer>
 </body>
 </html>

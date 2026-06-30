@@ -1,0 +1,31 @@
+document.addEventListener("DOMContentLoaded", function () 
+{
+    // Formularz zapisów
+    const form = document.getElementById("signup-form");
+    if (form) {
+        form.addEventListener("submit", function (event) 
+        {
+            event.preventDefault();
+            document.getElementById("signup-message").textContent = "Zapisano pomyślnie!";
+        });
+    }
+});
+
+
+
+<div class="contact-form">
+                <h3>Formularz kontaktowy</h3>
+                <form action="#" method="POST">
+                    <label for="name">Imię i nazwisko:</label>
+                    <input type="text" id="name" name="name" required>
+
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+
+                    <label for="message">Wiadomość:</label>
+                    <textarea id="message" name="message" required></textarea>
+
+                    <button type="submit">Wyślij</button>
+                </form>
+            </div>
+        </div>

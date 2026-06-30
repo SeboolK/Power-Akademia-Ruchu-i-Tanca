@@ -3,66 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>O nas - Power Akademia</title>
+    <title>O nas | POWER Akademia</title>
     <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
 </head>
 <body>
-
-    <header>
-        <img src="images/logo.jpg" alt="Logo Power Akademia" class="logo">
-        <h1>O nas</h1>
-        <nav>
-            <ul>
-                <li><a href="index.html">Start</a></li>
-                <li><a href="onas.html">O nas</a></li>
-                <li><a href="aktualnosci.html">Aktualności</a></li>
-                <li><a href="galeria.html">Galeria</a></li>
-                <li><a href="kontakt.html">Kontakt</a></li>
-            </ul>
+    <header class="site-header">
+        <a class="brand" href="index.html"><img src="images/logo.jpg" alt="Logo POWER Akademia" class="brand-logo"><span>POWER Akademia</span></a>
+        <button class="menu-toggle" type="button" aria-label="Otwórz menu" aria-expanded="false">☰</button>
+        <nav class="main-nav" aria-label="Główna nawigacja">
+            <a href="index.html">Start</a><a class="active" href="onas.html">O nas</a><a href="aktualnosci.html">Aktualności</a><a href="galeria.html">Galeria</a><a href="zapisy.html">Zapisy</a><a href="kontakt.html">Kontakt</a>
         </nav>
     </header>
 
-    <section id="about-us">
-        <div class="container">
-            <div class="about-content">
-                <div class="text-section">
-                    <h2 class="fade-in">Power Akademia Ruchu i Tańca</h2>
-                    <p class="highlight fade-in">
-                        Power Akademia Ruchu i Tańca to miejsce, w którym pasja do tańca towarz się z profesjonalizmem. 
-                        Jako szkoła tańca, oferujemy szeroką gamę zajęć, które pomogą Ci rozwijać swoje umiejętności, 
-                        niezależnie od poziomu zaawansowania. Nasze kursy są prowadzone przez doświadczonych instruktorów, 
-                        którzy dbają o indywidualne podejście do każdego uczestnika.
-                    </p>
-    
-                    <h3 class="fade-in">Nasza Misja</h3>
-                    <p class="right-align fade-in">
-                        Naszą misją jest inspirowanie do ruchu, rozwój artystyczny i promowanie zdrowego stylu życia poprzez taniec. 
-                        Chcemy, aby każdy z naszych uczestników poczuł się pewnie na parkiecie, rozwijając swoje talenty 
-                        i czerpiąc radość z aktywności fizycznej.
-                    </p>
-    
-                    <h3 class="fade-in">Nasze Zajęcia</h3>
-                    <p class="right-align fade-in">
-                        W Power Akademii oferujemy różnorodne zajęcia taneczne, które obejmują zarówno tańce towarzyskie, jak i rekreacyjne. 
-                        Każdy kurs jest dostosowany do wieku i poziomu zaawansowania uczestników. 
-                    </p>
-    
-                    <h3 class="fade-in">Dlaczego Warto Wybrać Power Akademię?</h3>
-                    <ul class="fade-in">
-                        <li><strong>Profesjonalni instruktorzy</strong> – nasi nauczyciele to doświadczeni tancerze, którzy z pasją przekazują swoją wiedzę.</li>
-                        <li><strong>Indywidualne podejście</strong> – każdy uczestnik ma możliwość rozwoju we własnym tempie, co daje pewność postępów.</li>
-                        <li><strong>Motywująca atmosfera</strong> – w naszej akademii stawiamy na pozytywną energię i wspólne cele.</li>
-                    </ul>
-                </div>
-                <div class="image-section">
-                    <img src="images/img3.jpg" alt="Power Akademia Ruchu i Tańca">
-                </div>
+    <main>
+        <section class="page-hero compact">
+            <p class="eyebrow">Nasza historia</p>
+            <h1>Tworzymy miejsce, w którym taniec daje ludziom moc</h1>
+        </section>
+
+        <section class="section split-section">
+            <div class="split-copy reveal">
+                <h2>POWER Akademia Ruchu i Tańca</h2>
+                <p>Jesteśmy szkołą tańca w Rzeszowie, która łączy profesjonalne prowadzenie zajęć z przyjazną atmosferą. Pracujemy z dziećmi, młodzieżą, dorosłymi i seniorami, pomagając każdemu rozwijać się w swoim tempie.</p>
+                <p>Stawiamy na technikę, regularność i dobre relacje. Zajęcia mają uczyć, ale też dawać radość, odwagę i poczucie przynależności do grupy.</p>
             </div>
-        </div>
-    </section>
+            <img class="split-image reveal" src="images/img2.jpg" alt="Zajęcia taneczne POWER Akademii">
+        </section>
 
-    
+        <section class="section values-section">
+            <div class="section-heading reveal">
+                <p class="eyebrow">Wartości</p>
+                <h2>Na tym budujemy zajęcia</h2>
+            </div>
+            <div class="feature-grid three">
+                <article class="feature-card reveal"><h3>Rozwój</h3><p>Uczymy krok po kroku, dbając o technikę i poczucie postępu.</p></article>
+                <article class="feature-card reveal"><h3>Atmosfera</h3><p>Tworzymy bezpieczną przestrzeń, w której łatwiej przełamać stres.</p></article>
+                <article class="feature-card reveal"><h3>Energia</h3><p>Taniec ma poruszać ciało, głowę i emocje. Dlatego zajęcia są żywe i konkretne.</p></article>
+            </div>
+        </section>
+    </main>
 
-
+    <footer class="site-footer"><p>POWER Akademia Ruchu i Tańca | Rzeszów</p><div><a href="kontakt.html">Kontakt</a><a href="zapisy.html">Zapisy</a></div></footer>
 </body>
 </html>
