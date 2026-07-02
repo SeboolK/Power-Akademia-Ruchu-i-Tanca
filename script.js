@@ -34,6 +34,7 @@ function setupGallery() {
     const photoContainer = document.getElementById("photo-container");
     const photosDiv = document.getElementById("photos");
     const closeGalleryBtn = document.getElementById("close-gallery");
+    const galleryTitle = document.getElementById("gallery-title");
 
     if (!albums.length || !photoContainer || !photosDiv || !closeGalleryBtn) {
         return;
@@ -48,6 +49,11 @@ function setupGallery() {
         album7: 2
     };
 
+    const albumTitles = {};
+    albums.forEach((album) => {
+        albumTitles[album.dataset.album] = album.dataset.title || album.textContent.trim();
+    });
+
     let currentAlbum = "";
     let currentIndex = 1;
 
@@ -55,14 +61,24 @@ function setupGallery() {
         photosDiv.innerHTML = "";
         currentAlbum = albumId;
         const imageCount = albumPhotos[albumId] || 0;
+        const title = albumTitles[albumId] || "Galeria";
+
+        if (galleryTitle) galleryTitle.textContent = title;
 
         for (let i = 1; i <= imageCount; i += 1) {
+            const thumb = document.createElement("button");
+            thumb.type = "button";
+            thumb.className = "gallery-thumb";
+            thumb.setAttribute("aria-label", `Otwórz zdjęcie ${i} z albumu ${title}`);
+
             const img = document.createElement("img");
             img.src = `images/${albumId}/img${i}.jpg`;
-            img.alt = `Zdjęcie ${i}`;
-            img.className = "gallery-img";
-            img.addEventListener("click", () => openImageInFullscreen(i));
-            photosDiv.appendChild(img);
+            img.alt = `${title} - zdjęcie ${i}`;
+            img.loading = "lazy";
+
+            thumb.append(img);
+            thumb.addEventListener("click", () => openImageInFullscreen(i));
+            photosDiv.appendChild(thumb);
         }
 
         photoContainer.classList.add("open");
@@ -79,12 +95,16 @@ function setupGallery() {
     function openImageInFullscreen(index) {
         currentIndex = index;
         const totalImages = albumPhotos[currentAlbum] || 1;
+        const albumTitle = albumTitles[currentAlbum] || "Galeria";
         const fullscreenOverlay = document.createElement("div");
         fullscreenOverlay.className = "fullscreen-overlay";
 
+        const viewer = document.createElement("div");
+        viewer.className = "fullscreen-viewer";
+
         const enlargedImg = document.createElement("img");
         enlargedImg.src = `images/${currentAlbum}/img${currentIndex}.jpg`;
-        enlargedImg.alt = `Powiększone zdjęcie ${currentIndex}`;
+        enlargedImg.alt = `${albumTitle} - powiększone zdjęcie ${currentIndex}`;
         enlargedImg.className = "fullscreen-img";
 
         const prevBtn = document.createElement("button");
@@ -99,12 +119,27 @@ function setupGallery() {
         nextBtn.className = "nav-btn next-btn";
         nextBtn.setAttribute("aria-label", "Następne zdjęcie");
 
+        function updateImage() {
+            enlargedImg.src = `images/${currentAlbum}/img${currentIndex}.jpg`;
+            enlargedImg.alt = `${albumTitle} - powiększone zdjęcie ${currentIndex}`;
+        }
+
         function navigate(direction) {
             currentIndex += direction;
             if (currentIndex < 1) currentIndex = totalImages;
             if (currentIndex > totalImages) currentIndex = 1;
-            enlargedImg.src = `images/${currentAlbum}/img${currentIndex}.jpg`;
-            enlargedImg.alt = `Powiększone zdjęcie ${currentIndex}`;
+            updateImage();
+        }
+
+        function closeFullscreen() {
+            fullscreenOverlay.remove();
+            document.removeEventListener("keydown", handleKeys);
+        }
+
+        function handleKeys(event) {
+            if (event.key === "ArrowLeft") navigate(-1);
+            if (event.key === "ArrowRight") navigate(1);
+            if (event.key === "Escape") closeFullscreen();
         }
 
         prevBtn.addEventListener("click", (event) => {
@@ -118,23 +153,14 @@ function setupGallery() {
         });
 
         fullscreenOverlay.addEventListener("click", (event) => {
-            if (event.target === fullscreenOverlay) {
-                fullscreenOverlay.remove();
-            }
+            if (event.target === fullscreenOverlay) closeFullscreen();
         });
 
-        document.addEventListener("keydown", function handleKeys(event) {
-            if (!document.body.contains(fullscreenOverlay)) {
-                document.removeEventListener("keydown", handleKeys);
-                return;
-            }
-            if (event.key === "ArrowLeft") navigate(-1);
-            if (event.key === "ArrowRight") navigate(1);
-            if (event.key === "Escape") fullscreenOverlay.remove();
-        });
-
-        fullscreenOverlay.append(prevBtn, enlargedImg, nextBtn);
+        updateImage();
+        viewer.append(enlargedImg);
+        fullscreenOverlay.append(prevBtn, viewer, nextBtn);
         document.body.appendChild(fullscreenOverlay);
+        document.addEventListener("keydown", handleKeys);
     }
 
     albums.forEach((album) => {

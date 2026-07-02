@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kontakt | POWER Akademia</title>
+    <title>Kontakt i zapisy | POWER Akademia</title>
     <link rel="stylesheet" href="style.css">
     <script defer src="script.js"></script>
 </head>
@@ -12,34 +12,74 @@
         <a class="brand" href="index.html"><img src="images/logo.jpg" alt="Logo POWER Akademia" class="brand-logo"><span>POWER Akademia</span></a>
         <button class="menu-toggle" type="button" aria-label="Otwórz menu" aria-expanded="false">☰</button>
         <nav class="main-nav" aria-label="Główna nawigacja">
-            <a href="index.html">Start</a><a href="onas.html">O nas</a><a href="aktualnosci.html">Aktualności</a><a href="galeria.html">Galeria</a><a href="zapisy.html">Zapisy</a><a class="active" href="kontakt.html">Kontakt</a>
+            <a href="index.html">Start</a><a href="onas.html">O nas</a><a href="aktualnosci.html">Aktualności</a><a href="galeria.html">Galeria</a><a class="active" href="kontakt.html">Kontakt i zapisy</a>
         </nav>
     </header>
 
     <main>
         <section class="page-hero compact">
-            <p class="eyebrow">Kontakt</p>
+            <p class="eyebrow">Kontakt i zapisy</p>
             <h1>Napisz do nas i dobierzemy zajęcia</h1>
         </section>
 
-        <section class="section contact-grid">
-            <div class="contact-card reveal">
-                <h2>POWER Akademia Ruchu i Tańca</h2>
-                <p><strong>Miasto:</strong> Rzeszów</p>
-                <p><strong>Email:</strong> <a href="mailto:biuro.powerart@gmail.com">biuro.powerart@gmail.com</a></p>
-                <div class="social-row">
-                    <a class="btn secondary" href="https://www.facebook.com/profile.php?id=61563900643759" target="_blank" rel="noopener">Facebook</a>
-                    <a class="btn secondary" href="https://www.instagram.com/power_akademiatancarzeszow/" target="_blank" rel="noopener">Instagram</a>
+        <section class="section contact-signup-layout">
+            <div class="contact-stack">
+                <div class="contact-card reveal">
+                    <h2>POWER Akademia Ruchu i Tańca</h2>
+                    <p><strong>Miasto:</strong> Rzeszów</p>
+                    <p><strong>Email:</strong> <a href="mailto:biuro.powerart@gmail.com">biuro.powerart@gmail.com</a></p>
+                    <div class="social-row">
+                        <a class="btn secondary social-link" href="https://www.facebook.com/profile.php?id=61563900643759" target="_blank" rel="noopener">
+                            <span class="social-icon facebook-icon" aria-hidden="true">f</span>
+                            Facebook
+                        </a>
+                        <a class="btn secondary social-link" href="https://www.instagram.com/power_akademiatancarzeszow/" target="_blank" rel="noopener">
+                            <span class="social-icon instagram-icon" aria-hidden="true"></span>
+                            Instagram
+                        </a>
+                    </div>
                 </div>
+
+                <aside class="signup-aside reveal">
+                    <h2>Co warto wpisać?</h2>
+                    <ul class="check-list">
+                        <li>Wiek uczestnika</li>
+                        <li>Czy ma już doświadczenie taneczne</li>
+                        <li>Jaki typ zajęć go interesuje</li>
+                        <li>Preferowane dni lub godziny</li>
+                    </ul>
+                </aside>
             </div>
-            <div class="contact-card reveal">
-                <h2>Szybka wiadomość</h2>
-                <p>Najprościej napisać maila z wiekiem uczestnika, doświadczeniem i preferowanym typem zajęć.</p>
-                <a class="btn primary" href="mailto:biuro.powerart@gmail.com?subject=Zapytanie%20o%20zajęcia%20POWER%20Akademia">Napisz email</a>
-            </div>
+
+            <form class="signup-form reveal" id="signup-form">
+                <label>Imię i nazwisko
+                    <input name="name" type="text" autocomplete="name" required>
+                </label>
+                <label>Email
+                    <input name="email" type="email" autocomplete="email" required>
+                </label>
+                <label>Telefon
+                    <input name="phone" type="tel" autocomplete="tel">
+                </label>
+                <label>Uczestnik
+                    <select name="group" required>
+                        <option value="">Wybierz grupę</option>
+                        <option>Dzieci</option>
+                        <option>Młodzież</option>
+                        <option>Dorośli</option>
+                        <option>Seniorzy</option>
+                        <option>Nie wiem, proszę o pomoc</option>
+                    </select>
+                </label>
+                <label>Wiadomość
+                    <textarea name="message" rows="5" placeholder="Wiek uczestnika, doświadczenie, preferowane zajęcia"></textarea>
+                </label>
+                <button class="btn primary" type="submit">Przygotuj wiadomość</button>
+                <p class="form-note" id="signup-message">Formularz przygotuje wiadomość email do wysłania.</p>
+            </form>
         </section>
     </main>
 
-    <footer class="site-footer"><p>POWER Akademia Ruchu i Tańca | Rzeszów</p><div><a href="zapisy.html">Zapisy</a><a href="galeria.html">Galeria</a></div></footer>
+    <footer class="site-footer"><p>POWER Akademia Ruchu i Tańca | Rzeszów</p><div><a href="galeria.html">Galeria</a><a href="aktualnosci.html">Aktualności</a></div></footer>
 </body>
 </html>

@@ -12,7 +12,7 @@
         <a class="brand" href="index.html"><img src="images/logo.jpg" alt="Logo POWER Akademia" class="brand-logo"><span>POWER Akademia</span></a>
         <button class="menu-toggle" type="button" aria-label="Otwórz menu" aria-expanded="false">☰</button>
         <nav class="main-nav" aria-label="Główna nawigacja">
-            <a href="index.html">Start</a><a href="onas.html">O nas</a><a href="aktualnosci.html">Aktualności</a><a class="active" href="galeria.html">Galeria</a><a href="zapisy.html">Zapisy</a><a href="kontakt.html">Kontakt</a>
+            <a href="index.html">Start</a><a href="onas.html">O nas</a><a href="aktualnosci.html">Aktualności</a><a class="active" href="galeria.html">Galeria</a><a href="kontakt.html">Kontakt i zapisy</a>
         </nav>
     </header>
 
@@ -23,40 +23,66 @@
         </section>
 
         <section class="section gallery-section">
-            <div class="album-grid">
-                <button class="album-card reveal" type="button" data-album="album1">
+            <div class="gallery-intro reveal">
+                <div>
+                    <p class="eyebrow">Albumy</p>
+                    <h2>Momenty, występy i zajęcia w jednym miejscu</h2>
+                </div>
+            </div>
+
+            <div class="gallery-showcase">
+                <button class="album-card album-card-large reveal" type="button" data-album="album3" data-title="Zabawa">
+                    <img src="images/img5.jpg" alt="Zabawa w POWER Akademii">
+                    <strong>Zabawa</strong>
+                    <small>Energia zajęć i wspólne taneczne chwile</small>
+                </button>
+
+                <button class="album-card reveal" type="button" data-album="album1" data-title="Power Przedszkole">
                     <img src="images/img4.jpg" alt="Power Przedszkole">
-                    <span>Power Przedszkole</span>
+                    <strong>Power Przedszkole</strong>
+                    <small>Zajęcia dla najmłodszych</small>
                 </button>
-                <button class="album-card reveal" type="button" data-album="album2">
+
+                <button class="album-card reveal" type="button" data-album="album2" data-title="Power Senior">
                     <img src="images/album2/img1.jpg" alt="Power Senior">
-                    <span>Power Senior</span>
+                    <strong>Power Senior</strong>
+                    <small>Ruch, taniec i dobra atmosfera</small>
                 </button>
-                <button class="album-card reveal" type="button" data-album="album3">
-                    <img src="images/img5.jpg" alt="Zabawa">
-                    <span>Zabawa</span>
-                </button>
-                <button class="album-card reveal" type="button" data-album="album4">
+
+                <button class="album-card reveal" type="button" data-album="album4" data-title="Party">
                     <img src="images/album4/img1.jpg" alt="Party">
-                    <span>Party</span>
+                    <strong>Party</strong>
+                    <small>Taneczne wydarzenia i spotkania</small>
                 </button>
-                <button class="album-card reveal" type="button" data-album="album5">
+
+                <button class="album-card reveal" type="button" data-album="album5" data-title="Turnieje">
                     <img src="images/album5/img1.jpg" alt="Turnieje">
-                    <span>Turnieje</span>
+                    <strong>Turnieje</strong>
+                    <small>Scena, emocje i występy</small>
                 </button>
-                <button class="album-card reveal" type="button" data-album="album7">
+
+                <button class="album-card reveal" type="button" data-album="album7" data-title="Maluchy Power Dance">
                     <img src="images/album7/img1.jpg" alt="Maluchy Power Dance">
-                    <span>Maluchy Power Dance</span>
+                    <strong>Maluchy Power Dance</strong>
+                    <small>Pierwsze kroki w tańcu</small>
                 </button>
             </div>
         </section>
     </main>
 
     <div class="gallery-modal" id="photo-container" aria-hidden="true">
-        <button class="modal-close" id="close-gallery" type="button" aria-label="Zamknij galerię">×</button>
-        <div class="modal-photos" id="photos"></div>
+        <div class="gallery-dialog" role="dialog" aria-modal="true" aria-labelledby="gallery-title">
+            <div class="gallery-toolbar">
+                <div>
+                    <p class="eyebrow">Otwarty album</p>
+                    <h2 id="gallery-title">Galeria</h2>
+                </div>
+                <button class="modal-close" id="close-gallery" type="button" aria-label="Zamknij galerię">×</button>
+            </div>
+            <div class="modal-photos" id="photos"></div>
+        </div>
     </div>
 
-    <footer class="site-footer"><p>POWER Akademia Ruchu i Tańca | Rzeszów</p><div><a href="zapisy.html">Zapisy</a><a href="kontakt.html">Kontakt</a></div></footer>
+    <footer class="site-footer"><p>POWER Akademia Ruchu i Tańca | Rzeszów</p><div><a href="kontakt.html">Kontakt i zapisy</a></div></footer>
 </body>
 </html>
