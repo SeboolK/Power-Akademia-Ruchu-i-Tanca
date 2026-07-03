@@ -8,6 +8,8 @@
     --accent: #e43f5a;
     --accent-dark: #f05b72;
     --gold: #f3b34f;
+    --gold-soft: rgba(243, 179, 79, 0.18);
+    --gold-line: rgba(243, 179, 79, 0.38);
     --navy: #10182b;
     --radius: 8px;
     --shadow: 0 18px 45px rgba(0, 0, 0, 0.34);
@@ -34,6 +36,27 @@ body {
     color: var(--ink);
     background: var(--paper);
     line-height: 1.6;
+}
+
+.page-home {
+    background: #0e111b;
+}
+
+.page-about {
+    background: #0b0b10;
+}
+
+.page-news {
+    background: #121019;
+}
+
+.page-gallery {
+    background: #070910;
+}
+
+.page-contact {
+    background: #17131a;
+    color: var(--ink);
 }
 
 img {
@@ -137,6 +160,31 @@ a {
     background-image: linear-gradient(90deg, rgba(14, 18, 35, 0.86), rgba(14, 18, 35, 0.28)), url("images/img5.jpg");
 }
 
+.page-home .hero {
+    background-image: linear-gradient(90deg, rgba(8, 10, 18, 0.92), rgba(87, 14, 35, 0.48)), url("images/home.png");
+}
+
+.page-about .page-hero {
+    background-image: linear-gradient(90deg, rgba(8, 8, 12, 0.88), rgba(124, 83, 23, 0.28)), url("images/img3.jpg");
+}
+
+.page-news .news-hero {
+    background-image: linear-gradient(90deg, rgba(12, 11, 18, 0.9), rgba(226, 63, 90, 0.32)), url("images/img2.jpg");
+}
+
+.page-gallery .gallery-hero {
+    background-image: linear-gradient(90deg, rgba(7, 9, 16, 0.92), rgba(123, 16, 55, 0.2)), url("images/img5.jpg");
+}
+
+.page-contact .page-hero {
+    color: #ffffff;
+    background-image: linear-gradient(90deg, rgba(15, 11, 18, 0.9), rgba(103, 23, 49, 0.42)), url("images/img1.jpg");
+}
+
+.page-contact .page-hero .eyebrow {
+    color: var(--gold);
+}
+
 .hero-content,
 .page-hero > * {
     max-width: 760px;
@@ -164,6 +212,28 @@ a {
     font-weight: 800;
     letter-spacing: 0.08em;
     text-transform: uppercase;
+}
+
+.section-heading h2,
+.split-copy h2,
+.contact-card h2,
+.signup-aside h2,
+.gallery-intro h2 {
+    position: relative;
+}
+
+.section-heading h2::after,
+.split-copy h2::after,
+.contact-card h2::after,
+.signup-aside h2::after,
+.gallery-intro h2::after {
+    content: "";
+    display: block;
+    width: 72px;
+    height: 3px;
+    margin-top: 16px;
+    border-radius: 999px;
+    background: linear-gradient(90deg, var(--gold), rgba(243, 179, 79, 0));
 }
 
 .hero-actions,
@@ -316,6 +386,40 @@ a {
     box-shadow: var(--shadow);
 }
 
+.feature-card,
+.trainer-card,
+.stat-card,
+.process-card,
+.audience-card,
+.news-tile,
+.music-card,
+.event-card,
+.contact-card,
+.signup-form,
+.signup-aside {
+    position: relative;
+}
+
+.feature-card::before,
+.trainer-card::before,
+.stat-card::before,
+.process-card::before,
+.audience-card::before,
+.news-tile::before,
+.music-card::before,
+.event-card::before,
+.contact-card::before,
+.signup-form::before,
+.signup-aside::before {
+    content: "";
+    position: absolute;
+    inset: 0 auto 0 0;
+    width: 3px;
+    border-radius: var(--radius) 0 0 var(--radius);
+    background: linear-gradient(180deg, var(--gold), rgba(243, 179, 79, 0.08));
+    opacity: 0.78;
+}
+
 .feature-card {
     padding: 24px;
 }
@@ -324,7 +428,7 @@ a {
 .news-date {
     display: inline-flex;
     margin-bottom: 18px;
-    color: var(--accent);
+    color: var(--gold);
     font-weight: 900;
 }
 
@@ -358,7 +462,6 @@ a {
     max-height: 540px;
     object-fit: cover;
     border-radius: var(--radius);
-    box-shadow: var(--shadow);
 }
 
 .check-list {
@@ -381,13 +484,143 @@ a {
     width: 10px;
     height: 10px;
     border-radius: 50%;
-    background: var(--accent);
+    background: var(--gold);
+    box-shadow: 0 0 0 5px var(--gold-soft);
 }
 
 .trainers-section,
 .values-section,
 .gallery-section {
     background: #111624;
+}
+
+.page-home .intro-section {
+    background: radial-gradient(circle at top right, rgba(228, 63, 90, 0.14), transparent 34%), #0e111b;
+}
+
+.page-home .split-section {
+    background: #f7f2ec;
+    color: #15131a;
+}
+
+.page-home .split-section .eyebrow,
+.page-home .split-section .check-list li::before {
+    color: var(--accent);
+}
+
+.page-home .split-section p,
+.page-home .split-section .check-list {
+    color: #4d4652;
+}
+
+.page-home .trainers-section {
+    background: linear-gradient(180deg, #111624, #17101a);
+}
+
+.page-about .about-intro-section {
+    background: #f7f2ec;
+    color: #15131a;
+}
+
+.page-about .about-intro-section .eyebrow {
+    color: #9c6a18;
+}
+
+.page-about .about-intro-section p,
+.page-about .stat-card span {
+    color: #5b5360;
+}
+
+.page-about .stat-card {
+    background: #ffffff;
+    border-color: rgba(156, 106, 24, 0.24);
+}
+
+.page-about .process-section {
+    background: linear-gradient(135deg, #0b0b10, #18110b);
+}
+
+.page-about .mini-trainers-section {
+    background: linear-gradient(135deg, #19120a, #34220c);
+}
+
+.page-about .audience-section {
+    background: #10131d;
+}
+
+.page-news .news-board-section {
+    background: #211c24;
+    color: #15131a;
+}
+
+.page-news .news-board-section .eyebrow {
+    color: var(--gold);
+}
+
+.page-news .highlight-news {
+    color: #ffffff;
+    border-color: var(--gold-line);
+    background: linear-gradient(135deg, #15131a, #8f2437 62%, #4a310f);
+}
+
+.page-news .news-tile {
+    color: var(--ink);
+    background: #2a2430;
+    border-color: var(--gold-line);
+}
+
+.page-news .news-tile p {
+    color: var(--muted);
+}
+
+.page-news .music-section {
+    background: linear-gradient(135deg, #111624, #211018);
+}
+
+.page-news .events-section {
+    background: #0e111b;
+}
+
+.page-gallery .gallery-section {
+    background: radial-gradient(circle at top left, rgba(228, 63, 90, 0.18), transparent 30%), #070910;
+}
+
+.page-contact .contact-signup-layout {
+    background: #17131a;
+}
+
+.page-contact .contact-card,
+.page-contact .signup-aside,
+.page-contact .signup-form {
+    color: var(--ink);
+    background: #211c24;
+    border-color: var(--gold-line);
+}
+
+.page-contact .contact-card p,
+.page-contact .signup-aside li,
+.page-contact .form-note {
+    color: var(--muted);
+}
+
+.page-contact .signup-form input,
+.page-contact .signup-form select,
+.page-contact .signup-form textarea {
+    color: var(--ink);
+    background: #15121a;
+    border-color: rgba(243, 179, 79, 0.22);
+}
+
+.page-contact .signup-form input:focus,
+.page-contact .signup-form select:focus,
+.page-contact .signup-form textarea:focus {
+    outline: 2px solid rgba(243, 179, 79, 0.38);
+    border-color: var(--gold);
+}
+
+.page-contact .signup-form input::placeholder,
+.page-contact .signup-form textarea::placeholder {
+    color: #8e8798;
 }
 
 .trainer-grid {
@@ -442,7 +675,9 @@ a {
     gap: 24px;
     padding: 48px clamp(20px, 6vw, 80px);
     color: #ffffff;
-    background: linear-gradient(135deg, #161d31, #2a1322);
+    border-top: 1px solid var(--gold-line);
+    border-bottom: 1px solid var(--gold-line);
+    background: linear-gradient(135deg, #161d31, #2a1322 62%, #4a310f);
 }
 
 .news-layout {
@@ -467,7 +702,7 @@ a {
 }
 
 .text-link {
-    color: var(--accent);
+    color: var(--gold);
     font-weight: 800;
 }
 
@@ -499,7 +734,6 @@ a {
     min-height: 360px;
     object-fit: cover;
     border-radius: var(--radius);
-    box-shadow: var(--shadow);
 }
 
 .stats-grid,
@@ -575,7 +809,11 @@ a {
 .event-card span {
     display: inline-flex;
     margin-bottom: 14px;
-    color: var(--accent);
+    padding: 6px 10px;
+    border: 1px solid var(--gold-line);
+    border-radius: 999px;
+    color: var(--gold);
+    background: var(--gold-soft);
     font-weight: 900;
 }
 
@@ -631,7 +869,24 @@ a {
 }
 
 .music-card li {
-    margin: 8px 0;
+    display: grid;
+    grid-template-columns: minmax(120px, 0.45fr) minmax(0, 1fr);
+    gap: 12px;
+    margin: 0;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(243, 179, 79, 0.16);
+}
+
+.music-card li:last-child {
+    border-bottom: 0;
+}
+
+.music-card li strong {
+    color: var(--gold);
+}
+
+.music-card li span {
+    color: var(--muted);
 }
 
 .events-list {
@@ -665,7 +920,7 @@ a {
     justify-content: flex-end;
     min-height: 230px;
     padding: 18px;
-    border: 1px solid rgba(255, 255, 255, 0.12);
+    border: 1px solid var(--gold-line);
     border-radius: var(--radius);
     color: #ffffff;
     text-align: left;
@@ -692,7 +947,7 @@ a {
     position: absolute;
     inset: 12px;
     z-index: -1;
-    border: 1px solid rgba(255, 255, 255, 0.18);
+    border: 1px solid rgba(243, 179, 79, 0.48);
     border-radius: calc(var(--radius) - 2px);
     opacity: 0;
     transform: scale(0.98);
@@ -760,7 +1015,7 @@ a {
     width: min(1180px, 100%);
     max-height: min(86vh, 900px);
     overflow: hidden;
-    border: 1px solid var(--line);
+    border: 1px solid var(--gold-line);
     border-radius: var(--radius);
     background: rgba(23, 27, 40, 0.96);
     box-shadow: 0 30px 90px rgba(0, 0, 0, 0.5);
@@ -772,7 +1027,7 @@ a {
     justify-content: space-between;
     gap: 18px;
     padding: 22px;
-    border-bottom: 1px solid var(--line);
+    border-bottom: 1px solid var(--gold-line);
 }
 
 .gallery-toolbar h2 {
@@ -788,7 +1043,7 @@ a {
     border: 0;
     border-radius: 50%;
     color: #ffffff;
-    background: var(--accent);
+    background: linear-gradient(135deg, var(--accent), #9c6a18);
     font-size: 28px;
     cursor: pointer;
 }
@@ -857,10 +1112,10 @@ a {
     place-items: center;
     width: 52px;
     height: 52px;
-    border: 1px solid rgba(255, 255, 255, 0.18);
+    border: 1px solid var(--gold-line);
     border-radius: 50%;
     color: #ffffff;
-    background: rgba(255, 255, 255, 0.12);
+    background: rgba(243, 179, 79, 0.14);
     font-size: 36px;
     cursor: pointer;
     backdrop-filter: blur(12px);
