@@ -140,12 +140,12 @@ a {
     padding: clamp(120px, 15vw, 190px) clamp(20px, 6vw, 80px) clamp(56px, 8vw, 90px);
     color: #ffffff;
     overflow: hidden;
-    background: linear-gradient(90deg, rgba(14, 18, 35, 0.86), rgba(14, 18, 35, 0.36)), url("images/img1.jpg") center/cover no-repeat;
+    background: url("images/img1.jpg") center/cover no-repeat;
 }
 
 .page-hero {
     min-height: 46vh;
-    background-image: linear-gradient(90deg, rgba(14, 18, 35, 0.86), rgba(14, 18, 35, 0.38)), url("images/img3.jpg");
+    background-image: url("images/img3.jpg");
 }
 
 .page-hero.compact {
@@ -153,32 +153,32 @@ a {
 }
 
 .news-hero {
-    background-image: linear-gradient(90deg, rgba(14, 18, 35, 0.86), rgba(14, 18, 35, 0.38)), url("images/img2.jpg");
+    background-image: url("images/img2.jpg");
 }
 
 .gallery-hero {
-    background-image: linear-gradient(90deg, rgba(14, 18, 35, 0.86), rgba(14, 18, 35, 0.28)), url("images/img5.jpg");
+    background-image: url("images/img5.jpg");
 }
 
 .page-home .hero {
-    background-image: linear-gradient(90deg, rgba(8, 10, 18, 0.92), rgba(87, 14, 35, 0.48)), url("images/home.png");
+    background-image: url("images/home.png");
 }
 
 .page-about .page-hero {
-    background-image: linear-gradient(90deg, rgba(8, 8, 12, 0.88), rgba(124, 83, 23, 0.28)), url("images/img3.jpg");
+    background-image: url("images/img3.jpg");
 }
 
 .page-news .news-hero {
-    background-image: linear-gradient(90deg, rgba(12, 11, 18, 0.9), rgba(226, 63, 90, 0.32)), url("images/img2.jpg");
+    background-image: url("images/img2.jpg");
 }
 
 .page-gallery .gallery-hero {
-    background-image: linear-gradient(90deg, rgba(7, 9, 16, 0.92), rgba(123, 16, 55, 0.2)), url("images/img5.jpg");
+    background-image: url("images/img5.jpg");
 }
 
 .page-contact .page-hero {
     color: #ffffff;
-    background-image: linear-gradient(90deg, rgba(15, 11, 18, 0.9), rgba(103, 23, 49, 0.42)), url("images/img1.jpg");
+    background-image: url("images/img1.jpg");
 }
 
 .page-contact .page-hero .eyebrow {
@@ -187,7 +187,21 @@ a {
 
 .hero-content,
 .page-hero > * {
+    position: relative;
+    z-index: 1;
     max-width: 760px;
+    text-shadow: 0 4px 10px rgba(0, 0, 0, 0.95), 0 12px 34px rgba(0, 0, 0, 0.85);
+}
+
+.hero-content::before,
+.page-hero > *::before {
+    content: "";
+    position: absolute;
+    inset: -28px -34px;
+    z-index: -1;
+    border-radius: var(--radius);
+    background: radial-gradient(circle at left center, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.22) 52%, transparent 74%);
+    pointer-events: none;
 }
 
 .hero h1,
@@ -332,6 +346,7 @@ a {
     border-radius: var(--radius);
     background: rgba(255, 255, 255, 0.13);
     backdrop-filter: blur(10px);
+    text-shadow: 0 4px 18px rgba(0, 0, 0, 0.9);
 }
 
 .hero-panel strong,
@@ -462,6 +477,7 @@ a {
     max-height: 540px;
     object-fit: cover;
     border-radius: var(--radius);
+    box-shadow: var(--shadow);
 }
 
 .check-list {
@@ -734,6 +750,7 @@ a {
     min-height: 360px;
     object-fit: cover;
     border-radius: var(--radius);
+    box-shadow: var(--shadow);
 }
 
 .stats-grid,
