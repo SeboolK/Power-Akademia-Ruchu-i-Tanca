@@ -143,6 +143,16 @@ a {
     background: url("images/img1.jpg") center/cover no-repeat;
 }
 
+.hero::after,
+.page-hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background: rgba(0, 0, 0, 0.24);
+    pointer-events: none;
+}
+
 .page-hero {
     min-height: 46vh;
     background-image: url("images/img3.jpg");
@@ -338,6 +348,8 @@ a {
 }
 
 .hero-panel {
+    position: relative;
+    z-index: 1;
     justify-self: end;
     width: min(360px, 100%);
     margin-top: 42px;
