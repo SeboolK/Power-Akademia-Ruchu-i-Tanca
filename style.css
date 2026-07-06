@@ -1242,13 +1242,13 @@ a {
 }
 
 .project-credit {
-    flex: 0 0 100%;
-    margin: 8px 0 0;
-    padding-top: 16px;
-    border-top: 1px solid rgba(243, 179, 79, 0.22);
+    flex: 0 1 auto;
+    margin: 0;
+    padding: 0;
+    border-top: 0;
     color: var(--muted);
     font-size: 14px;
-    text-align: center;
+    text-align: right;
 }
 
 .project-credit a {
