@@ -1219,6 +1219,7 @@ a {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    flex-wrap: wrap;
     gap: 18px;
     padding: 28px clamp(20px, 6vw, 80px);
     color: #ffffff;
@@ -1238,6 +1239,25 @@ a {
 .site-footer a {
     color: #ffffff;
     text-decoration: none;
+}
+
+.project-credit {
+    flex: 0 0 100%;
+    margin: 8px 0 0;
+    padding-top: 16px;
+    border-top: 1px solid rgba(243, 179, 79, 0.22);
+    color: var(--muted);
+    font-size: 14px;
+    text-align: center;
+}
+
+.project-credit a {
+    color: var(--gold);
+    font-weight: 800;
+}
+
+.standalone-credit {
+    border-top: 0;
 }
 
 .reveal {
