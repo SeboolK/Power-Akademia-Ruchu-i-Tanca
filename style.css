@@ -1376,3 +1376,90 @@ a {
         bottom: 18px;
     }
 }
+
+.contact-only-section {
+    display: grid;
+    gap: 18px;
+    background: #17131a;
+}
+
+.contact-main-card {
+    max-width: 980px;
+}
+
+.contact-main-card h2 {
+    max-width: 780px;
+}
+
+.contact-main-card p:not(.eyebrow) {
+    max-width: 720px;
+}
+
+.contact-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 24px;
+}
+
+.contact-info-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+}
+
+@media (max-width: 980px) {
+    .contact-info-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.page-news .news-hero {
+    min-height: clamp(430px, 36vw, 560px);
+    background-position: center center;
+}
+
+
+.page-about .about-intro img {
+    object-fit: contain;
+    background: #f4eee7;
+}
+
+
+/* Niezalezne obrazy i kadrowanie dla kazdej podstrony */
+.home-hero {
+    background-image: url("images/home.png");
+    background-position: center center;
+    background-size: cover;
+}
+
+.page-about .about-hero {
+    background-image: url("images/img3.jpg");
+    background-position: center center;
+    background-size: cover;
+}
+
+.page-news .news-hero {
+    background-image: url("images/img2.jpg");
+    min-height: clamp(430px, 36vw, 560px);
+    background-position: center center;
+    background-size: cover;
+}
+
+.page-gallery .gallery-hero {
+    background-image: url("images/img5.jpg");
+    background-position: center center;
+    background-size: cover;
+}
+
+.page-contact .contact-hero {
+    background-image: url("images/img1.jpg");
+    background-position: center 42%;
+    background-size: cover;
+}
+
+.page-about .about-intro .about-story-image {
+    object-fit: contain;
+    object-position: center center;
+    background: #f4eee7;
+}
