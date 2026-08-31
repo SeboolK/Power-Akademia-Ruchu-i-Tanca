@@ -1,0 +1,41 @@
+{
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/index.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/onas.html",
+      "destination": "/onas",
+      "permanent": true
+    },
+    {
+      "source": "/aktualnosci.html",
+      "destination": "/aktualnosci",
+      "permanent": true
+    },
+    {
+      "source": "/galeria.html",
+      "destination": "/galeria",
+      "permanent": true
+    },
+    {
+      "source": "/kontakt.html",
+      "destination": "/kontakt",
+      "permanent": true
+    },
+    {
+      "source": "/zapisy.html",
+      "destination": "/kontakt",
+      "permanent": true
+    },
+    {
+      "source": "/zapisy",
+      "destination": "/kontakt",
+      "permanent": true
+    }
+  ]
+}
