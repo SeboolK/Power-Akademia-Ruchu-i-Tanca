@@ -1463,3 +1463,17 @@ a {
     object-position: center center;
     background: #f4eee7;
 }
+
+/* Prawdziwe ikony social media jako pliki SVG */
+.social-link .social-icon {
+    width: 22px;
+    height: 22px;
+    border-radius: 0;
+    object-fit: contain;
+    background: transparent;
+}
+
+.social-link .social-icon::before,
+.social-link .social-icon::after {
+    content: none;
+}
