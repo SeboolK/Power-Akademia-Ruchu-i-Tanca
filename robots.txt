@@ -2,3 +2,4 @@ User-agent: *
 Allow: /
 
 Sitemap: https://powerakademiatanca.pl/sitemap.xml
+Host: powerakademiatanca.pl

@@ -1,0 +1,22 @@
+{
+  "name": "POWER Akademia Ruchu i Tańca",
+  "short_name": "POWER Akademia",
+  "description": "Szkoła tańca w Rzeszowie dla dzieci, młodzieży, dorosłych i seniorów.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#0e111b",
+  "theme_color": "#0e111b",
+  "icons": [
+    {
+      "src": "/images/favicon.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/images/favicon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
