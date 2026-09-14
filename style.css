@@ -765,3 +765,180 @@ html,body{max-width:100%;overflow-x:clip;}
         line-height: 1.18;
     }
 }
+
+/* QA nav: pasek zakladek bez kolizji na tabletach i mniejszych ekranach */
+@media (min-width: 1181px) {
+    .site-header {
+        max-width: calc(100vw - 32px);
+    }
+
+    .main-nav {
+        min-width: 0;
+        gap: clamp(10px, 1.3vw, 22px);
+    }
+
+    .main-nav a {
+        font-size: clamp(12px, 0.78vw, 14px);
+        white-space: nowrap;
+    }
+
+    .nav-cta {
+        min-width: max-content;
+        padding-inline: clamp(16px, 1.6vw, 22px);
+    }
+}
+
+@media (max-width: 1180px) {
+    .site-header {
+        inset: 12px 12px auto;
+        max-width: calc(100vw - 24px);
+        grid-template-columns: minmax(0, auto) auto;
+        gap: 12px;
+        padding: 8px 10px;
+    }
+
+    .brand {
+        min-width: 0;
+    }
+
+    .brand span {
+        font-size: 14px;
+        white-space: nowrap;
+    }
+
+    .nav-cta {
+        display: none;
+    }
+
+    .menu-toggle {
+        display: block;
+        position: relative;
+        z-index: 90;
+        justify-self: end;
+        cursor: pointer;
+    }
+
+    .main-nav {
+        position: fixed;
+        inset: 0;
+        z-index: 80;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        width: 100vw;
+        max-width: 100vw;
+        height: 100svh;
+        gap: clamp(14px, 3vw, 24px);
+        padding: clamp(92px, 14vw, 132px) clamp(24px, 7vw, 72px) 42px;
+        overflow: hidden auto;
+        background: linear-gradient(135deg, rgba(5,5,5,.98), rgba(24,10,15,.98));
+        border-radius: 0;
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        transform: translateY(-12px);
+        transition: opacity .32s var(--ease), transform .32s var(--ease), visibility .32s var(--ease);
+    }
+
+    .main-nav.open {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+        transform: translateY(0);
+    }
+
+    .main-nav a {
+        width: 100%;
+        max-width: 100%;
+        font-family: Arial Black, Impact, sans-serif;
+        font-size: clamp(34px, 8.5vw, 68px);
+        line-height: 1.08;
+        color: #fff;
+        text-transform: uppercase;
+        letter-spacing: -0.02em;
+        overflow-wrap: normal;
+    }
+
+    .main-nav a:after {
+        bottom: -4px;
+        transform-origin: left;
+    }
+}
+
+@media (max-width: 420px) {
+    .site-header {
+        inset: 10px 10px auto;
+        max-width: calc(100vw - 20px);
+    }
+
+    .brand-logo {
+        width: 38px;
+        height: 38px;
+    }
+
+    .main-nav a {
+        font-size: clamp(30px, 9.5vw, 44px);
+    }
+}
+
+/* QA nav fix: otwarte menu ma wygrywac z poprzednimi regułami */
+@media (max-width: 1180px) {
+    .site-header .main-nav {
+        left: 0;
+        right: auto;
+        top: 0;
+        bottom: auto;
+        width: 100vw;
+        max-width: 100vw;
+        min-height: 100svh;
+        z-index: 80;
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+    }
+
+    .site-header .main-nav.open,
+    body.menu-open .site-header .main-nav {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+        transform: translateY(0);
+    }
+}
+
+/* QA nav fix 2: menu mobilne liczone od krawedzi ekranu mimo blur na pasku */
+.site-header {
+    --header-edge: 18px;
+}
+
+@media (max-width: 1180px) {
+    .site-header {
+        --header-edge: 12px;
+    }
+
+    .site-header .main-nav {
+        left: calc(-1 * var(--header-edge));
+        top: calc(-1 * var(--header-edge));
+        right: auto;
+        bottom: auto;
+        width: 100vw;
+        max-width: 100vw;
+        height: 100svh;
+        min-height: 100svh;
+    }
+
+    .site-header .main-nav.open,
+    body.menu-open .site-header .main-nav {
+        opacity: 1 !important;
+        visibility: visible !important;
+        pointer-events: auto !important;
+        transform: translateY(0) !important;
+    }
+}
+
+@media (max-width: 420px) {
+    .site-header {
+        --header-edge: 10px;
+    }
+}
